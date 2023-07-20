@@ -2,23 +2,18 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-$(function () {
+$(document).ready(function () {
 
-    var quickSave = $('.saveBtn');
+  $('.saveBtn').on('click', function() {
+    var userInputs = $(this).siblings('.description').val();
+    localStorage.setItem("userSaves", userInputs);
+  }) ;
 
-    quickSave.click(
-      function(event) {
-        console.log($(event.currentTarget).attr("data-hour"))
-        localStorage.setItem("userSaves", JSON.stringify(quickSave));
-        alert("test");
-      }
-    );
-
-    $('#saveClick').click(
-      function() {
-        var storedQuickSave = JSON.parse(localStorage.getItem('quickSave'));
-        return(storedQuickSave);
-      })
+//    quickSave.click(
+//      function() {
+  //      var storedQuickSave = JSON.parse(localStorage.getItem('quickSave'));
+    //    return(storedQuickSave);
+     });
 
 
   
@@ -43,5 +38,4 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-});
 // activity 4 ex.
