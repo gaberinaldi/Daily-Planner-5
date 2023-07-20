@@ -4,16 +4,17 @@
 
 $(document).ready(function () {
 
+  var hour = dayjs().hour();
+    localStorage.setItem("currentTime", hour);
+
   $('.saveBtn').on('click', function() {
     var userInputs = $(this).siblings('.description').val();
     localStorage.setItem("userSaves", userInputs);
   }) ;
 
-//    quickSave.click(
-//      function() {
-  //      var storedQuickSave = JSON.parse(localStorage.getItem('quickSave'));
-    //    return(storedQuickSave);
-     });
+  
+   
+   });
 
 
   
@@ -38,4 +39,3 @@ $(document).ready(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-// activity 4 ex.
