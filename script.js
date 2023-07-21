@@ -12,6 +12,9 @@ $(document).ready(function () {
     localStorage.setItem("userSaves", userInputs);
   }) ;
 
+    $('.time-block').each(function() {
+      console.log($(this).attr('id').split('-'))
+    })
   
    
    });
