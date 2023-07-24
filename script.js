@@ -33,6 +33,11 @@ $(document).ready(function () {
         $(timeBlock).addClass('future');
       }
     })
+
+    $(window).on('DOMContentLoaded', function() {
+      var storedValue = localStorage.getItem("userSaves");
+      return storedValue;
+      });
   
    
    });
