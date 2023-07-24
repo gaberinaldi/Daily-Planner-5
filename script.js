@@ -5,16 +5,39 @@
 $(document).ready(function () {
 
   var hour = dayjs().hour();
-    localStorage.setItem("currentTime", hour);
+  console.log(hour);
+   //localStorage.setItem("currentTime", hour); 
 
   $('.saveBtn').on('click', function() {
     var userInputs = $(this).siblings('.description').val();
     localStorage.setItem("userSaves", userInputs);
   }) ;
 
-    $('.time-block').each(function() {
-      console.log($(this).attr('id').split('-'))
+//    console.log($('.time-block'))
+    $('.time-block').each(function(i, timeBlock) {
+      var timeBlockHour = parseInt($(timeBlock).attr('id').split('-')[1]);
+      console.log(timeBlockHour);
+
+      if (timeBlockHour < hour) {
+        console.log('past');
+        $(timeBlock).addClass('past');
+      }
+
+      if (timeBlockHour === hour) {
+        console.log('present');
+        $(timeBlock).addClass('present');
+      }
+
+      if (timeBlockHour > hour) {
+        console.log('future');
+        $(timeBlock).addClass('future');
+      }
     })
+
+    $(window).on('DOMContentLoaded', function() {
+      var storedValue = localStorage.getItem("userSaves");
+      return storedValue;
+      });
   
    
    });
