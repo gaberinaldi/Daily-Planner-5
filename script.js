@@ -7,6 +7,9 @@ $(document).ready(function () {
   var hour = dayjs().hour();
   console.log(hour);
 
+  var now = dayjs();
+$('#currentDay').text(now);
+
   $('.saveBtn').on('click', function() {
     var userInputs = $(this).siblings('.description').val();
     var currentTime = $(this).parent().attr('id');
@@ -44,6 +47,8 @@ $(document).ready(function () {
     $('#hour-17 .description').val(localStorage.getItem('hour-17')); 
  
    });
+
+   //final
 
 
   
